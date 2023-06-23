@@ -15,8 +15,6 @@ export async function POST(request) {
  * @param {NextRequest} request 
  */
 export async function GET(request) {
-    if (request.bodyUsed) {
-        return NextResponse.json({ok: "cool"})
-    }
+    return NextResponse.json(request.headers.get('bod'))
 }
 
