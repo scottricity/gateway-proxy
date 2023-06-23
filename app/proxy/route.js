@@ -14,7 +14,9 @@ export async function POST(request) {
  * @param {NextRequest} request 
  */
 export async function GET(request) {
-    console.log(request.body)
+    request.json().then(d => {
+        console.log(d)
+    })
     return NextResponse.json(request.body)
 }
 
