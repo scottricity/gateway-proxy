@@ -7,6 +7,6 @@ import { NextRequest , NextResponse } from "next/server";
 export async function POST(request) {
     //let body = await request.json()
     let creds = request.credentials
-    return NextResponse.json({t: creds.toString()})
+    return NextResponse.json(request.headers)
 }
 
