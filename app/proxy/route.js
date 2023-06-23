@@ -5,8 +5,7 @@ import { NextRequest , NextResponse } from "next/server";
  * @param {NextRequest} request 
  */
 export async function POST(request) {
-    console.log(request.body)
-    
+    return NextResponse.json(request.body)
 }
 
 
@@ -15,6 +14,8 @@ export async function POST(request) {
  * @param {NextRequest} request 
  */
 export async function GET(request) {
-    return NextResponse.json(request.headers.get('bod'))
+    if (request.headers?.get('url')) {
+
+    }
 }
 
