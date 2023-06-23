@@ -5,8 +5,7 @@ import { NextRequest , NextResponse } from "next/server";
  * @param {NextRequest} request 
  */
 export async function POST(request) {
-    request.json().then(d => {
-        return NextResponse.json(d)
-    })
+    let body = await request.json()
+    return NextResponse.json(Object.keys(body))
 }
 
