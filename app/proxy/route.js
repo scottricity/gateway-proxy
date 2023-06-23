@@ -16,7 +16,7 @@ export async function POST(request) {
 export async function GET(request) {
     request.json().then(d => {
         console.log(d)
+        return NextResponse.json(request.body)
     })
-    return NextResponse.json(request.body)
 }
 
