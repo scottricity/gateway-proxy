@@ -12,3 +12,11 @@ export async function POST(request) {
     return NextResponse.json(Object.keys(body))
 }
 
+/**
+ * 
+ * @param {NextRequest} request 
+ */
+export async function GET(request) {
+    return NextResponse.json({msg: "ping check", status: 200});
+}
+
