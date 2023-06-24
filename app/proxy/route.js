@@ -10,7 +10,7 @@ export async function POST(request) {
     let body
     try {
         body = await request.json()
-        fetch({url: request.headers.get('url')}, {method: "POST", body: body})
+        fetch({url: request.headers.get('url')}, {method: "post", body: JSON.stringify(body), headers: {"Content-Type": "application/json"}})
     }catch {
         return NextResponse.json({msg: "empty body", status: 400});
     }
