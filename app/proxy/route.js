@@ -5,9 +5,9 @@ import { NextRequest , NextResponse } from "next/server";
  * @param {NextRequest} request 
  */
 export async function POST(request) {
-    let body = await request.text()
+    let body = await request.json()
     console.log(body)
-    let api = JSON.parse(body)
+    let api = body
     fetch({url: api.url}, {method: "POST", body: api.data})
     return NextResponse.json(body)
 }
