@@ -1,4 +1,5 @@
 import { NextRequest , NextResponse } from "next/server";
+import { NextApiRequest } from "next";
 
 /**
  * 
@@ -14,9 +15,15 @@ export async function POST(request) {
 
 /**
  * 
- * @param {NextRequest} request 
+ * @param {NextApiRequest} request 
  */
 export async function GET(request) {
-    return NextResponse.json({msg: "ping check", status: 200});
+    let data = {}
+    if (request.query) {
+        Object.keys(request.query).forEach((value, i) => {
+            data[value] = request.query[value]
+        })
+    }
+    return NextResponse.json({msg: "ping check", status: 200, data});
 }
 
