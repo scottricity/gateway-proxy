@@ -10,10 +10,7 @@ export async function POST(request) {
     let body
     try {
         body = await request.json()
-        let f = new FormData()
-        f.append("content", body.content)
-        f.append("username", body.username)
-        fetch({url: request.headers.get('url')}, {method: "POST", body: f})
+        fetch({url: request.headers.get('url')}, {method: "POST", body: body})
     }catch {
         return NextResponse.json({msg: "empty body", status: 400});
     }
