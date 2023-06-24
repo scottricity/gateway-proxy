@@ -6,7 +6,7 @@ import { NextRequest , NextResponse } from "next/server";
  */
 export async function POST(request) {
     let body = await request.json()
-    fetch({url: body.url}, {method: "POST", body: body.data})
+    fetch(body.url, {method: "post", body: JSON.stringify(body.data), headers: {"Content-Type": "application/json"}})
     return NextResponse.json({yuh: "Ok"})
 }
 
