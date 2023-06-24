@@ -15,13 +15,14 @@ export async function POST(request) {
 
 /**
  * 
- * @param {NextApiRequest} request 
+ * @param {NextRequest} request 
  */
 export async function GET(request) {
     let data = {}
-    if (request.query) {
-        Object.keys(request.query).forEach((value, i) => {
-            data[value] = request.query[value]
+    const { searchParams } = new URL(request.url)
+    if (searchParams){
+        searchParams.forEach((value, key) => {
+            data[key] = value
         })
     }
     return NextResponse.json({msg: "ping check", status: 200, data});
