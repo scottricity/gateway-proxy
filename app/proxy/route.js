@@ -14,7 +14,7 @@ export async function POST(request) {
     }catch {
         return NextResponse.json({msg: "empty body", status: 400});
     }
-    return NextResponse.json({t: Object.keys(body)})
+    return NextResponse.json(body)
 }
 
 /**
